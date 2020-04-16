@@ -63,6 +63,12 @@ const HeaderAdd = styled.div`
     text-decoration: none;
     background-color: var(--secondary);
   }
+  a:focus,
+  a:hover {
+    background-color: var(--primary);
+    color: var(--white);
+    text-decoration: underline;
+  }
   @media screen and (min-width: 768px) {
     max-width: 250px;
     text-align: right;

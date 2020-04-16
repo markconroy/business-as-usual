@@ -34,10 +34,6 @@ body {
   font-size: 16px;
 }
 
-main {
-  padding-top: 3rem;
-}
-
 a {
   color: var(--primary);
   transition: .3s;

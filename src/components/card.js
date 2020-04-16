@@ -14,6 +14,7 @@ const Article = styled.article`
   a:focus,
   a:hover {
     color: var(--secondary);
+    text-decoration: underline;
   }
 `
 
@@ -60,7 +61,7 @@ const Card = ({
         {cardAddress1 ? <CardListItem>{cardAddress1}</CardListItem> : ""}
         {cardAddress2 ? <CardListItem>{cardAddress2}</CardListItem> : ""}
         {cardTown ? <CardListItem>{cardTown}</CardListItem> : ""}
-        {cardCounty ? <CardListItem>{cardCounty}</CardListItem> : ""}
+        {cardCounty ? <CardListItem>Co. {cardCounty}</CardListItem> : ""}
       </CardList>
       <Link key={`${cardPath}`} to={`${cardPath}`}>Read More</Link>
     </CardBody>

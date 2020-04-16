@@ -34,18 +34,9 @@ const Layout = ({ children }) => {
       </Helmet>
       
       <Header siteTitle={data.site.siteMetadata.title} />
-      
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1rem 1.5rem`,
-        }}
-      >
-        <main>{children}</main>
-        
-      </div>
 
+      <main>{children}</main>
+        
       <Footer />
     
     </Fragment>
