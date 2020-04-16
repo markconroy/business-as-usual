@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
 import "./layout.css"
-import GlobalCssVariables from "./global-styles/global-css-variables.js"
+import Helmet from "react-helmet"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -26,10 +26,12 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    
     <Fragment>
-      
-      <GlobalCssVariables />
+
+      <Helmet>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet" />
+      </Helmet>
       
       <Header siteTitle={data.site.siteMetadata.title} />
       
