@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import Container from "./global-styles/container"
 
 const StyledFooter = styled.footer`
   background-color: var(--primary-dark);
@@ -18,18 +19,18 @@ const StyledFooter = styled.footer`
 `
 
 const FooterInner = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 0;
 `
 const Footer = () => (
   <StyledFooter>
-    <FooterInner>
-      <p>
-        © {new Date().getFullYear()}, An initiative of <a href="https://annertech.com">Annertech</a>, in cooperation with <a href="https://growremote.ie">Grow Remote Ireland</a>.
-      </p>
-      <p>If you'd like to build a version of this for your own country, <a href="https://github.com/markconroy/business-as-usual">the source code is available here</a>.</p>
-    </FooterInner>
+    <Container>
+      <FooterInner>
+        <p>
+          © {new Date().getFullYear()}, An initiative of <a href="https://annertech.com">Annertech</a>, in cooperation with <a href="https://growremote.ie">Grow Remote Ireland</a>.
+        </p>
+        <p>If you'd like to build a version of this for your own country, <a href="https://github.com/markconroy/business-as-usual">the source code is available here</a>.</p>
+      </FooterInner>
+    </Container>
   </StyledFooter>
 )
 
