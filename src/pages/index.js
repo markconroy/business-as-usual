@@ -1,14 +1,14 @@
-import React, { Fragment } from "react"
-import { Link } from "gatsby"
+import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Card from "../components/card"
+import StyledHeading from "../components/global-styles/headings.js"
+
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Business As Usual</h1>
+    <SEO />
+    <StyledHeading>Business As Usual</StyledHeading>
     <p>A listing of businesses that are still operating through the COVID-19 Crisis in Ireland and Northern Ireland.</p>
     <p>In the meantime, to be included in this new directory, please <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform">fill in this form</a>.</p>
   </Layout>
