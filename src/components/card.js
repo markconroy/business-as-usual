@@ -1,61 +1,70 @@
-import React, { Fragment } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
 const Article = styled.article`
-  border-left: 4px solid var(--primary);
-  border-top: 4px solid var(--primary);
+  border-left: 4px solid var(--secondary);
   width: 100%;
-  box-shadow: 
-    4px 4px 0px 0px #fff,
-    8px 8px 0px 0px var(--primary)
-  ;
-  &:focus-within,
-  &:hover {
-    background-color: var(--primary);
-  }
   a {
-    display: block;
-    height: 100%;
+    display: inline-block;
+    margin-top: auto;
     color: black;
     text-decoration: none;
   }
-  a:focus {
-    outline: 4px dashed var(--primary);
-  }
   a:focus,
   a:hover {
-    color: white;
-  }
-  a:focus h2,
-  a:hover h2 {
-    text-decoration: underline;
-    color: white;
+    color: var(--secondary);
   }
 `
 
 const CardHeading = styled.h2`
-  margin-bottom: 0;
-  padding: .5rem 1rem 0;
-  color: var(--primary);
+  margin-bottom: 1rem;
+  color: var(--black);
+  font-weight: 300;
+  font-size: calc(var(--heading-small) / 1.5);
+  @media screen and (min-width: 768px) {
+    font-size: var(--heading-small);
+  }
 `
 
 const CardBody = styled.div`
   padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--grey);
+`
+
+const CardList = styled.ul`
+  margin-bottom: 1rem;
+  padding: 0;
+`
+
+const CardListItem = styled.li`
+  list-style: none;
 `
 
 const Card = ({
   cardPath,
   cardTitle,
+  cardAddress1,
+  cardAddress2,
+  cardTown,
+  cardCounty
 }) => (
   <Article>
-    <Link key={`${cardPath}`} to={`${cardPath}`}>
-      <CardHeading>{cardTitle}</CardHeading>
-
-      <CardBody>
-        <p>Card Body Here</p>
-      </CardBody>
-    </Link>
+    
+    <CardBody>
+      <CardHeading>{cardTitle}</CardHeading>  
+      <CardList>
+        {cardAddress1 ? <CardListItem>{cardAddress1}</CardListItem> : ""}
+        {cardAddress2 ? <CardListItem>{cardAddress2}</CardListItem> : ""}
+        {cardTown ? <CardListItem>{cardTown}</CardListItem> : ""}
+        {cardCounty ? <CardListItem>{cardCounty}</CardListItem> : ""}
+      </CardList>
+      <Link key={`${cardPath}`} to={`${cardPath}`}>Read More</Link>
+    </CardBody>
+    
   </Article>
 )
 
