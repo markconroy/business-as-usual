@@ -4,9 +4,9 @@ import styled, { css } from "styled-components"
 // <StyledHeading as="h2">Heading Text Here</StyledHeading>
 
 const StyledHeading = styled.h1`
-  color: var(--primary);
-  ${props => props.h1 && css `
-    padding-top: 1rem;
+  color: var(--black);
+  ${props => props.reversed && css `
+    color: var(--white);
   `}
 `
 
