@@ -24,8 +24,9 @@ const StyledFooter = styled.footer`
 const Footer = () => (
   <StyledFooter>
     <div className="footer__inner">
+  
       <p>
-        © {new Date().getFullYear()}, A project of <a href="https://annertech.com">Annertech</a>.
+        © {new Date().getFullYear()}, An initiative of <a href="https://annertech.com">Annertech</a>.
       </p>
     </div>
   </StyledFooter>

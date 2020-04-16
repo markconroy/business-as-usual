@@ -9,7 +9,7 @@ const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <h1>Business As Usual</h1>
-    <p>A listing of bussiness that are still operating through the COVID-19 Crisis in Ireland and Northern Ireland.</p>
+    <p>A listing of business that are still operating through the COVID-19 Crisis in Ireland and Northern Ireland.</p>
     <p>We'll be live soon. In the meantime, please <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform">add your business to our website by filling in this form</a>.</p>
 
   </Layout>
