@@ -19,12 +19,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-styled-components`,
     {
       resolve: "gatsby-source-google-spreadsheet",
       options: {
         // The `spreadsheetId` is required, it is found in the url of your document:
         // https://docs.google.com/spreadsheets/d/<spreadsheetId>/edit#gid=0
-        spreadsheetId: "1iy4IMH43-aTB2dLOtbYtqVLsLBNC46Z5FJ-Brwl0oSM",
+        spreadsheetId: "1tT3Tb5gYvPaJ1YjNQCkatAK7Xa2V60_tNlvUFt7Jtr0",
     
         // The `spreadsheetName` is recommended, but optional
         // It is used as part of the id's during the node creation, as well as in the generated GraphQL-schema

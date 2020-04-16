@@ -1,21 +1,43 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import Card from "../components/card"
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <h1>Business As Usual</h1>
+    <p>A listing of bussiness that are still operating through the COVID-19 Crisis in Ireland and Northern Ireland.</p>
+    <p>We'll be live soon. In the meantime, please <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform">add your business to our website by filling in this form</a>.</p>
+
   </Layout>
 )
 
 export default IndexPage
+
+export const IndexPageQuery = graphql`
+  {
+    allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1 {
+      edges {
+        node {
+          addressLine1
+          businessName
+          county
+          doYouHaveAnOnlineStore_
+          postcode
+          emailAddress
+          hasYouBusinessChangedSinceCovid19_
+          phoneNumber_
+          provideAShortDescriptionOfYourBusiness
+          timestamp
+          town
+          website
+          whatAreYourOpeningHours_
+          whatServicesDoYouProvide_
+        }
+      }
+    }
+  }
+`
