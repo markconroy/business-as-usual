@@ -1,65 +1,88 @@
-import { StaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import React from "react"
-import Img from "gatsby-image"
 import styled from "styled-components"
+import Container from "./global-styles/container"
 
 const StyledHeader = styled.header`
-  border-bottom: 4px solid var(--primary);
   margin-bottom: 1.5rem;
+  background-color: var(--primary-dark);
 
-  .header__inner {
-    margin: 0 auto;
-    max-width: 960px;
-    padding: 1.5rem 1rem;
+  .header__link {
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`
+
+const HeaderInner = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
     align-items: center;
     > * {
-      flex-basis: 50%;
+     flex-basis: 50%;
     }
   }
-  .header__link {
-    text-decoration: none;
-    background-color: var(--primary);
+`
+
+const HeaderBranding = styled.div`
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
+`
+
+const FatLogo = styled.span`
+  font-weight: 700;
+  font-size: var(--heading-small);
+`
+
+const ThinLogo = styled.span`
+  font-weight: 300;
+  font-size: var(--heading-small);
+`
+
+const HeaderAdd = styled.div`
+  padding-left: 1rem;
+  text-align: center;
+  a {
     display: inline-block;
-    color: white;
-    padding: .5rem;
-    &:focus,
-    &:hover {
-      text-decoration: underline;
-      background-color: white;
-      color: var(--primary);
-    }
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    position: relative;
+    top: 2.5rem;
+    color: var(--white);
+    text-decoration: none;
+    background-color: var(--secondary);
   }
-  .header__link--with-border {
-    border: 3px solid var(--primary);
-    border-bottom: 0;
-    &:focus,
-    &:hover {
-      /* border-color:  */
-    }
-  }
-  .header__add {
-    padding-left: 1rem;
-    text-align: right;
+  @media screen and (min-width: 768px) {
     max-width: 250px;
+    text-align: right;
   }
 `
 
 const Header = () => (
   <StyledHeader>
-    <div className="header__inner">
-      <div className="header__branding">
-        <div className="header__branding-logo">
+    <Container>
+      <HeaderInner>
+        <HeaderBranding>
           <Link className="header__link" to="/">
-            Business As Usual
+            <ThinLogo>Business </ThinLogo> <FatLogo>as Usual</FatLogo>
           </Link>
-        </div>
-      </div>
-      <div className="header__add">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform">Add Your Business</a>
-      </div>
-    </div>
+        </HeaderBranding>
+        <HeaderAdd>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform">Add Your Business</a>
+        </HeaderAdd>
+      </HeaderInner>
+    </Container>
   </StyledHeader>
 )
 

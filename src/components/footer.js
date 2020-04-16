@@ -2,7 +2,19 @@ import React from "react"
 import styled from "styled-components"
 
 const StyledFooter = styled.footer`
-  border-top: 3px solid var(--primary);
+  background-color: var(--primary-dark);
+  color: var(--white);
+  a {
+    color: var(--white);
+    border-bottom: 2px dashed var(--secondary);
+    text-decoration: none;
+  }
+  a:focus,
+  a:hover {
+    color: var(--secondary);
+    text-decoration: none;
+    border-bottom: 2px solid var(--white);
+  }
 `
 
 const FooterInner = styled.div`
