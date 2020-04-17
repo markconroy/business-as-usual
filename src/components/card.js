@@ -61,7 +61,7 @@ const Card = ({
         {cardTown ? <CardListItem>{cardTown}</CardListItem> : ""}
         {cardCounty ? <CardListItem>Co. {cardCounty}</CardListItem> : ""}
       </CardList>
-      <Link key={`${cardPath}`} to={`${cardPath}`}>Read More</Link>
+      <Link key={`${cardPath}`} to={`${cardPath}`}><strong>Read More</strong></Link>
     </CardBody>
     
   </Article>
