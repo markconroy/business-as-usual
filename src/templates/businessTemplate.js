@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import StyledHeading from "../components/global-styles/headings.js"
 import Container from "../components/global-styles/container"
 import ContainerWide from "../components/global-styles/container-wide"
@@ -15,7 +15,7 @@ const BusinessHeader = styled.div`
   padding-left: 2rem;
   border-left: 3px solid var(--secondary);
   h1 {
-    margin-bottom: 0;
+    margin-bottom: 1rem;
   }
   h1 ~ br {
     margin-bottom: .25rem;

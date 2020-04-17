@@ -10,7 +10,7 @@ const _ = require("lodash")
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `GoogleSpreadsheetBusinessAsUsualResponsesFormResponses1`) {
-    const slug = `businesses/${_.kebabCase(node.county)}-${_.kebabCase(node.businessName)}`
+    const slug = `businesses/${node.county ? `${_.kebabCase(node.county)}/` : ""}${_.kebabCase(node.businessName)}`
     createNodeField({
       node,
       name: `slug`,
