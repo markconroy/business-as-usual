@@ -51,15 +51,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, .h1 {
   font-size: calc(var(--heading-large) / 1.5);
-  line-height: 1.1;
 }
 h2, .h2 {
   font-size: calc(var(--heading-medium) / 1.5);
-  line-height: 1.1;
 }
 h3, .h3 {
   font-size: calc(var(--heading-small) / 1.5);
-  line-height: 1.1;
 }
 
 @media screen and (min-width: 768px) {

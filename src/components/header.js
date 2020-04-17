@@ -5,7 +5,7 @@ import Container from "./global-styles/container"
 import CTAButton from "../components/ctabutton"
 
 const StyledHeader = styled.header`
-  margin-bottom: 1.5rem;
+  margin-bottom: calc(var(--line-height) * 3);
   padding-top: .25rem;
   padding-right: 1rem;
   padding-bottom: .25rem;

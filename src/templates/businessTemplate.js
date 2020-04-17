@@ -9,8 +9,7 @@ import CTAButton from "../components/ctabutton"
 import ContainerNarrowContent from "../components/global-styles/container-narrow-content"
 
 const BusinessHeader = styled.div`
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: calc(var(--line-height) * 3);
   padding-top: 1rem;
   padding-bottom: 2rem;
   padding-left: 2rem;
@@ -43,7 +42,8 @@ h2 {
     margin-top: 3rem;
   }
   + div {
-    margin-top: 3rem;
+    margin-top: calc(var(--line-height) * 3);
+    margin-bottom: calc(var(--line-height) * 3);
   }
 `
 
@@ -90,7 +90,7 @@ export default function EventTemplate({data}) {
           </BusinessHeader>
         </Container>
         
-        <Container paddingAll narrowContent>
+        <Container paddingLeft paddingRight narrowContent>
           <ContainerNarrowContent>
             <BusinessDetails>
               {dataItem.provideAShortDescriptionOfYourBusiness ? 

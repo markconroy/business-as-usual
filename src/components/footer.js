@@ -3,11 +3,13 @@ import styled from "styled-components"
 import Container from "./global-styles/container"
 
 const StyledFooter = styled.footer`
+  padding-top: calc(var(--line-height) * 2);
+  padding-bottom: calc(var(--line-height) * 2);
   background-color: var(--primary-dark);
   color: var(--white);
   a {
     color: var(--white);
-    border-bottom: 2px dashed var(--secondary);
+    border-bottom: 2px dashed var(--white);
     text-decoration: none;
   }
   a:focus,
@@ -19,7 +21,9 @@ const StyledFooter = styled.footer`
 `
 
 const FooterInner = styled.div`
-  padding: 1.5rem 0;
+  p:last-of-type {
+    margin-bottom: 0;
+  }
 `
 const Footer = () => (
   <StyledFooter>

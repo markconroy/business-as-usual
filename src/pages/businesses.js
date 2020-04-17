@@ -6,6 +6,7 @@ import Card from "../components/card"
 import GridContainer from "../components/global-styles/grid-container.js"
 import GridItem from "../components/global-styles/grid-item.js"
 import Container from "../components/global-styles/container"
+import StyledHeading from "../components/global-styles/headings"
 
 const BusinessPage = ({ data }) => (
   <Layout>
@@ -16,7 +17,7 @@ const BusinessPage = ({ data }) => (
     
     <Container>
 
-      <h1>Business As Usual</h1>  
+      <StyledHeading>Business As Usual</StyledHeading>  
 
       <GridContainer>
         {data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.edges.map(edge => (
