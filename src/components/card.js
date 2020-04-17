@@ -49,7 +49,6 @@ const Card = ({
   cardPath,
   cardTitle,
   cardAddress,
-  cardTown,
   cardCounty
 }) => (
   <Article>
@@ -58,7 +57,6 @@ const Card = ({
       <CardHeading>{cardTitle}</CardHeading>  
       <CardList>
         {cardAddress ? <CardListItem>{cardAddress}</CardListItem> : ""}
-        {cardTown ? <CardListItem>{cardTown}</CardListItem> : ""}
         {cardCounty ? <CardListItem>Co. {cardCounty}</CardListItem> : ""}
       </CardList>
       <Link key={`${cardPath}`} to={`${cardPath}`}><strong>Read More</strong></Link>

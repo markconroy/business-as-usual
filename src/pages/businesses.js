@@ -25,7 +25,7 @@ const BusinessPage = ({ data }) => (
               <Card 
                 cardPath = {edge.node.fields.slug}
                 cardTitle = {edge.node.businessName}
-                cardAddress = {edge.node.cardAddress}
+                cardAddress = {edge.node.address}
                 cardTown = {edge.node.town}
                 cardCounty = {edge.node.county}
               />
