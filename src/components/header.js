@@ -2,9 +2,14 @@ import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import Container from "./global-styles/container"
+import CTAButton from "../components/ctabutton"
 
 const StyledHeader = styled.header`
   margin-bottom: 1.5rem;
+  padding-top: .25rem;
+  padding-right: 1rem;
+  padding-bottom: .25rem;
+  padding-left: 1rem;
   background-color: var(--primary-dark);
 
   .header__link {
@@ -19,10 +24,10 @@ const StyledHeader = styled.header`
 `
 
 const HeaderInner = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  // margin: 0 auto;
+  // max-width: 960px;
+  // padding-top: .25rem;
+  // padding-bottom: .25rem;
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
@@ -41,11 +46,13 @@ const HeaderBranding = styled.div`
 `
 
 const FatLogo = styled.span`
+  font-family: "Poppins", "Open Sans", sans-serif;
   font-weight: 700;
   font-size: var(--heading-small);
 `
 
 const ThinLogo = styled.span`
+  font-family: "Poppins", "Open Sans", sans-serif;
   font-weight: 300;
   font-size: var(--heading-small);
 `
@@ -53,22 +60,24 @@ const ThinLogo = styled.span`
 const HeaderAdd = styled.div`
   padding-left: 1rem;
   text-align: center;
-  a {
-    display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    position: relative;
-    top: 2.5rem;
-    color: var(--white);
-    text-decoration: none;
-    background-color: var(--secondary);
-  }
-  a:focus,
-  a:hover {
-    background-color: var(--primary);
-    color: var(--white);
-    text-decoration: underline;
-  }
+  position: relative;
+  top: 2rem;
+  // a {
+  //   display: inline-block;
+  //   padding: 1rem 2rem;
+  //   border-radius: 2rem;
+    // position: relative;
+    // top: 2rem;
+  //   color: var(--white);
+  //   text-decoration: none;
+  //   background-color: var(--secondary);
+  // }
+  // a:focus,
+  // a:hover {
+  //   background-color: var(--primary);
+  //   color: var(--white);
+  //   text-decoration: underline;
+  // }
   @media screen and (min-width: 768px) {
     max-width: 250px;
     text-align: right;
@@ -77,18 +86,21 @@ const HeaderAdd = styled.div`
 
 const Header = () => (
   <StyledHeader>
-    <Container>
-      <HeaderInner>
-        <HeaderBranding>
-          <Link className="header__link" to="/">
-            <ThinLogo>Business </ThinLogo> <FatLogo>as Usual</FatLogo>
-          </Link>
-        </HeaderBranding>
-        <HeaderAdd>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform">Add Your Business</a>
-        </HeaderAdd>
-      </HeaderInner>
-    </Container>
+    <HeaderInner>
+      <HeaderBranding>
+        <Link className="header__link" to="/">
+          <ThinLogo>Business </ThinLogo> <FatLogo>as Usual</FatLogo>
+        </Link>
+      </HeaderBranding>
+      <HeaderAdd>
+        <CTAButton
+          relativeLower
+          CTAButtonLink="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform"
+          CTAButtonText="Add Your Business"
+        />
+        {/* <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform">Add Your Business</a> */}
+      </HeaderAdd>
+    </HeaderInner>
   </StyledHeader>
 )
 

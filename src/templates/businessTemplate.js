@@ -1,11 +1,12 @@
 import React, { Fragment } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import StyledHeading from "../components/global-styles/headings.js"
 import Container from "../components/global-styles/container"
-import ContainerWide from "../components/global-styles/container-wide"
+import CTAButton from "../components/ctabutton"
+import ContainerNarrowContent from "../components/global-styles/container-narrow-content"
 
 const BusinessHeader = styled.div`
   margin-top: 2rem;
@@ -14,19 +15,34 @@ const BusinessHeader = styled.div`
   padding-bottom: 2rem;
   padding-left: 2rem;
   border-left: 3px solid var(--secondary);
+  font-weight: bold;
   h1 {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
   h1 ~ br {
     margin-bottom: .25rem;
   }
+  a {
+    color: var(--secondary);
+    display: inline-block;
+    margin-top: 1.5rem;
+  }
+  a:focus,
+  a:hover {
+    color: var(--primary-dark);
+  }
 `
 
 const BusinessDetails = styled.div`
-  h2 {
+color: var(--grey);
+h2 {
     margin-bottom: .5rem;
+    color: var(--grey);
   }
   h2 ~ h2 {
+    margin-top: 3rem;
+  }
+  + div {
     margin-top: 3rem;
   }
 `
@@ -64,16 +80,18 @@ export default function EventTemplate({data}) {
               </Fragment>
             : ""}
             
+            {dataItem.emailAddress && dataItem.website ? " | " : ""}
+            
             {dataItem.website ? 
               <Fragment>    
-                <br></br><a href={dataItem.website}>Visit Our Website</a>
+                <a href={dataItem.website}>Visit Our Website</a>
               </Fragment>
             : ""}
           </BusinessHeader>
         </Container>
         
-        <ContainerWide>
-          <Container paddingAll>
+        <Container paddingAll narrowContent>
+          <ContainerNarrowContent>
             <BusinessDetails>
               {dataItem.provideAShortDescriptionOfYourBusiness ? 
                 <Fragment>
@@ -118,9 +136,15 @@ export default function EventTemplate({data}) {
               : ""}
             </BusinessDetails>
 
-            <Link to="/businesses/">See All Businesses</Link>
-          </Container>
-        </ContainerWide>
+            <CTAButton 
+              marginTop
+              internalLink
+              CTAButtonLink="/businesses"
+              CTAButtonText="See All Businesses"
+            />
+
+          </ContainerNarrowContent>
+        </Container>
       </article>
         
       

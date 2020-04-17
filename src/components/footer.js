@@ -26,7 +26,7 @@ const Footer = () => (
     <Container>
       <FooterInner>
         <p>
-          © {new Date().getFullYear()}, An initiative of <a href="https://annertech.com">Annertech</a>, in cooperation with <a href="https://growremote.ie">Grow Remote Ireland</a>.
+          © {new Date().getFullYear()}, An initiative of <a href="https://annertech.com">Annertech</a>, in partnership with <a href="https://growremote.ie">Grow Remote Ireland</a>.
         </p>
         <p>If you'd like to build a version of this for your own country, <a href="https://github.com/markconroy/business-as-usual">the source code is available here</a>.</p>
       </FooterInner>
