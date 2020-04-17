@@ -6,7 +6,7 @@ import StyledHeading from "../components/global-styles/headings.js"
 import Container from "../components/global-styles/container"
 
 
-const IndexPage = ({ data }) => (
+const IndexPage = () => (
   <Layout>
     <SEO />
     
@@ -20,28 +20,3 @@ const IndexPage = ({ data }) => (
 )
 
 export default IndexPage
-
-export const IndexPageQuery = graphql`
-  {
-    allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1 {
-      edges {
-        node {
-          addressLine1
-          businessName
-          county
-          doYouHaveAnOnlineStore_
-          postcode
-          emailAddress
-          hasYouBusinessChangedSinceCovid19_
-          phoneNumber_
-          provideAShortDescriptionOfYourBusiness
-          timestamp
-          town
-          website
-          whatAreYourOpeningHours_
-          whatServicesDoYouProvide_
-        }
-      }
-    }
-  }
-`

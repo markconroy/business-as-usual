@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import StyledHeading from "../components/global-styles/headings.js"
 import Container from "../components/global-styles/container"
 import ContainerWide from "../components/global-styles/container-wide"
@@ -32,23 +32,22 @@ export default function EventTemplate({data}) {
         <Container>
           <BusinessHeader>
             <StyledHeading>{dataItem.businessName}</StyledHeading>    
-            <br></br>{dataItem.addressLine1}
+            <br></br>{dataItem.address}
             <br></br>{dataItem.county}
           </BusinessHeader>
         </Container>
         
         <ContainerWide>
-          <Container>
+          <Container paddingLeft>
             
             <p>{dataItem.canYouFulfillOrdersForPeopleAndHaveThemDelivered_}</p>
             
             <p>{dataItem.doYouHaveAnOnlineStore_}</p>
             <p>{dataItem.emailAddress}</p>
-            <p>{dataItem.hasYouBusinessChangedSinceCovid19_}</p>
-            <p>{dataItem.phoneNumber_}</p>
+            <p>{dataItem.hasYourBusinessChangedSinceCovid19_}</p>
+            <p>{dataItem.phoneNumber}</p>
             <p>{dataItem.postcode}</p>
             <p>{dataItem.provideAShortDescriptionOfYourBusiness}</p>
-            <p>{dataItem.town}</p>
             <p>{dataItem.website}</p>
             <p>{dataItem.whatAreYourOpeningHours_}</p>
             <p>{dataItem.whatServicesDoYouProvide_}</p>   
@@ -67,16 +66,15 @@ export const BusinessPageQuery = graphql`
   query($slug: String!) {
     googleSpreadsheetBusinessAsUsualResponsesFormResponses1(fields: { slug: { eq: $slug } }) {
       businessName
-      addressLine1
+      address
       canYouFulfillOrdersForPeopleAndHaveThemDelivered_
       county
       doYouHaveAnOnlineStore_
       emailAddress
-      hasYouBusinessChangedSinceCovid19_
-      phoneNumber_
+      hasYourBusinessChangedSinceCovid19_
+      phoneNumber
       postcode
       provideAShortDescriptionOfYourBusiness
-      town
       website
       whatAreYourOpeningHours_
       whatServicesDoYouProvide_

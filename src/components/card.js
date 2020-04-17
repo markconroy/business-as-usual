@@ -48,8 +48,7 @@ const CardListItem = styled.li`
 const Card = ({
   cardPath,
   cardTitle,
-  cardAddress1,
-  cardAddress2,
+  cardAddress,
   cardTown,
   cardCounty
 }) => (
@@ -58,8 +57,7 @@ const Card = ({
     <CardBody>
       <CardHeading>{cardTitle}</CardHeading>  
       <CardList>
-        {cardAddress1 ? <CardListItem>{cardAddress1}</CardListItem> : ""}
-        {cardAddress2 ? <CardListItem>{cardAddress2}</CardListItem> : ""}
+        {cardAddress ? <CardListItem>{cardAddress}</CardListItem> : ""}
         {cardTown ? <CardListItem>{cardTown}</CardListItem> : ""}
         {cardCounty ? <CardListItem>Co. {cardCounty}</CardListItem> : ""}
       </CardList>

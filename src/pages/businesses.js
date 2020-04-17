@@ -25,8 +25,7 @@ const BusinessPage = ({ data }) => (
               <Card 
                 cardPath = {edge.node.fields.slug}
                 cardTitle = {edge.node.businessName}
-                cardAddress1 = {edge.node.cardAddress1}
-                cardAddress2 = {edge.node.cardAddress2}
+                cardAddress = {edge.node.cardAddress}
                 cardTown = {edge.node.town}
                 cardCounty = {edge.node.county}
               />
@@ -46,17 +45,16 @@ export const BusinessPageQuery = graphql`
     allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1 {
       edges {
         node {
-          addressLine1
+          address
           businessName
           county
           doYouHaveAnOnlineStore_
           postcode
           emailAddress
-          hasYouBusinessChangedSinceCovid19_
-          phoneNumber_
+          hasYourBusinessChangedSinceCovid19_
+          phoneNumber
           provideAShortDescriptionOfYourBusiness
           timestamp
-          town
           website
           whatAreYourOpeningHours_
           whatServicesDoYouProvide_
