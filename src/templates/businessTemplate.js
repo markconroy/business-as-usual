@@ -54,6 +54,10 @@ export default function EventTemplate({data}) {
               <Fragment><br></br>{dataItem.county}</Fragment>
             : ""}
             
+            {dataItem.postcode ? 
+              <Fragment><br></br>{dataItem.postcode}</Fragment>
+            : ""}
+            
             {dataItem.emailAddress ? 
               <Fragment>
                 <br></br><a href={`mailto:${dataItem.emailAddress}`}>Email Us</a>
