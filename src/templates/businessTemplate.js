@@ -8,10 +8,26 @@ import Container from "../components/global-styles/container"
 import ContainerWide from "../components/global-styles/container-wide"
 
 const BusinessHeader = styled.div`
-  border-left: 3px solid var(--secondary);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
   padding-left: 2rem;
+  border-left: 3px solid var(--secondary);
   h1 {
-    margin-bottom: 1rem;
+    margin-bottom: 0;
+  }
+  h1 ~ br {
+    margin-bottom: .25rem;
+  }
+`
+
+const BusinessDetails = styled.div`
+  h2 {
+    margin-bottom: .5rem;
+  }
+  h2 ~ h2 {
+    margin-top: 3rem;
   }
 `
 
@@ -32,27 +48,73 @@ export default function EventTemplate({data}) {
         <Container>
           <BusinessHeader>
             <StyledHeading>{dataItem.businessName}</StyledHeading>    
-            <br></br>{dataItem.address}
-            <br></br>{dataItem.county}
+            {dataItem.address ? dataItem.address : ""}
+            
+            {dataItem.county ? 
+              <Fragment><br></br>{dataItem.county}</Fragment>
+            : ""}
+            
+            {dataItem.emailAddress ? 
+              <Fragment>
+                <br></br><a href={`mailto:${dataItem.emailAddress}`}>Email Us</a>
+              </Fragment>
+            : ""}
+            
+            {dataItem.website ? 
+              <Fragment>    
+                <br></br><a href={dataItem.website}>Visit Our Website</a>
+              </Fragment>
+            : ""}
           </BusinessHeader>
         </Container>
         
         <ContainerWide>
-          <Container paddingLeft>
-            
-            <p>{dataItem.canYouFulfillOrdersForPeopleAndHaveThemDelivered_}</p>
-            
-            <p>{dataItem.doYouHaveAnOnlineStore_}</p>
-            <p>{dataItem.emailAddress}</p>
-            <p>{dataItem.hasYourBusinessChangedSinceCovid19_}</p>
-            <p>{dataItem.phoneNumber}</p>
-            <p>{dataItem.postcode}</p>
-            <p>{dataItem.provideAShortDescriptionOfYourBusiness}</p>
-            <p>{dataItem.website}</p>
-            <p>{dataItem.whatAreYourOpeningHours_}</p>
-            <p>{dataItem.whatServicesDoYouProvide_}</p>   
+          <Container paddingAll>
+            <BusinessDetails>
+              {dataItem.provideAShortDescriptionOfYourBusiness ? 
+                <Fragment>
+                  <StyledHeading as="h2" className="h3">About Us</StyledHeading> 
+                  <p>{dataItem.provideAShortDescriptionOfYourBusiness}</p>
+                </Fragment>
+              : ""}
 
-            <Link to="/businesses/">All Businesses</Link>
+              {dataItem.whatServicesDoYouProvide_ ? 
+                <Fragment>
+                  <StyledHeading as="h2" className="h3">Our Services</StyledHeading> 
+                  <p>{dataItem.whatServicesDoYouProvide_}</p>
+                </Fragment>
+              : ""}
+
+              {dataItem.whatAreYourOpeningHours_ ? 
+                <Fragment>
+                  <StyledHeading as="h2" className="h3">Opening Hours</StyledHeading> 
+                  <p>{dataItem.whatAreYourOpeningHours_}</p>
+                </Fragment>
+              : ""}
+
+              {dataItem.hasYourBusinessChangedSinceCovid19_ ? 
+                <Fragment>
+                  <StyledHeading as="h2" className="h3">How has your business changed since COVID-19?</StyledHeading> 
+                  <p>{dataItem.hasYourBusinessChangedSinceCovid19_}</p>
+                </Fragment>
+              : ""}
+              
+              {dataItem.canYouFulfillOrdersForPeopleAndHaveThemDelivered_ ? 
+                <Fragment>
+                  <StyledHeading as="h2" className="h3">Can you fulfill orders for people and have them delivered?</StyledHeading> 
+                  <p>{dataItem.canYouFulfillOrdersForPeopleAndHaveThemDelivered_}</p>
+                </Fragment>
+              : ""}
+
+              {dataItem.doYouHaveAnOnlineStore_ ? 
+                <Fragment>
+                  <StyledHeading as="h2" className="h3">Do you have an online store?</StyledHeading> 
+                  <p>{dataItem.doYouHaveAnOnlineStore_}</p>
+                </Fragment>
+              : ""}
+            </BusinessDetails>
+
+            <Link to="/businesses/">See All Businesses</Link>
           </Container>
         </ContainerWide>
       </article>
