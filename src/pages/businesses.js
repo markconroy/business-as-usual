@@ -58,7 +58,7 @@ export const BusinessPageQuery = graphql`
           timestamp
           website
           whatAreYourOpeningHours_
-          whatServicesDoYouProvide_
+          yourServices
           fields {
             slug
           }

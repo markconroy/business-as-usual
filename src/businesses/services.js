@@ -51,7 +51,7 @@ export default ServicesPage
 export const ServicesPageQuery = graphql`
   query {
     allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1 {
-      group(field: whatServicesDoYouProvide_) {
+      group(field: yourServices) {
         fieldValue
         totalCount
       }

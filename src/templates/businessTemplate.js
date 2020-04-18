@@ -100,10 +100,10 @@ export default function EventTemplate({data}) {
                 </Fragment>
               : ""}
 
-              {dataItem.whatServicesDoYouProvide_ ? 
+              {dataItem.yourServices ? 
                 <Fragment>
                   <StyledHeading as="h2" className="h3">Our Services</StyledHeading> 
-                  <p>{dataItem.whatServicesDoYouProvide_}</p>
+                  <p>{dataItem.yourServices}</p>
                 </Fragment>
               : ""}
 
@@ -167,7 +167,7 @@ export const BusinessPageQuery = graphql`
       provideAShortDescriptionOfYourBusiness
       website
       whatAreYourOpeningHours_
-      whatServicesDoYouProvide_
+      yourServices
     }
   }
 `

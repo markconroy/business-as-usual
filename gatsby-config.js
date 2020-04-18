@@ -77,7 +77,7 @@ module.exports = {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           GoogleSpreadsheetBusinessAsUsualResponsesFormResponses1: {
             name: node => node.businessName,
-            services: node => node.whatServicesDoYouProvide_,
+            services: node => node.yourServices,
             county: node => node.county,
             phone: node => node.phoneNumber,
             path: node => node.fields.slug,
