@@ -27,7 +27,6 @@ const BusinessPage = ({ data }) => (
                 cardPath = {edge.node.fields.slug}
                 cardTitle = {edge.node.businessName}
                 cardAddress = {edge.node.address}
-                cardTown = {edge.node.town}
                 cardCounty = {edge.node.county}
               />
             </GridItem>
