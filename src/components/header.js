@@ -103,7 +103,6 @@ const Header = () => (
               <ThinLogo>Business </ThinLogo> <FatLogo>as Usual</FatLogo>
             </Link>
           </HeaderBranding>
-          <Search searchIndex={data.siteSearchIndex.index} />
           <HeaderAdd>
             <CTAButton
               relativeLower
