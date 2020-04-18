@@ -1,8 +1,9 @@
-import { Link } from "gatsby"
 import React from "react"
+import { StaticQuery, Link } from "gatsby"
 import styled from "styled-components"
 import Container from "./global-styles/container"
 import CTAButton from "../components/ctabutton"
+import Search from "./search"
 
 const StyledHeader = styled.header`
   margin-bottom: calc(var(--line-height) * 3);
@@ -85,23 +86,36 @@ const HeaderAdd = styled.div`
 `
 
 const Header = () => (
-  <StyledHeader>
-    <HeaderInner>
-      <HeaderBranding>
-        <Link className="header__link" to="/">
-          <ThinLogo>Business </ThinLogo> <FatLogo>as Usual</FatLogo>
-        </Link>
-      </HeaderBranding>
-      <HeaderAdd>
-        <CTAButton
-          relativeLower
-          CTAButtonLink="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform"
-          CTAButtonText="Add Your Business"
-        />
-        {/* <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform">Add Your Business</a> */}
-      </HeaderAdd>
-    </HeaderInner>
-  </StyledHeader>
+
+  <StaticQuery
+    query={graphql`
+      query SearchIndexQuery {
+        siteSearchIndex {
+          index
+        }
+      }
+    `}
+    render={data => (
+      <StyledHeader>
+        <HeaderInner>
+          <HeaderBranding>
+            <Link className="header__link" to="/">
+              <ThinLogo>Business </ThinLogo> <FatLogo>as Usual</FatLogo>
+            </Link>
+          </HeaderBranding>
+          <Search searchIndex={data.siteSearchIndex.index} />
+          <HeaderAdd>
+            <CTAButton
+              relativeLower
+              CTAButtonLink="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform"
+              CTAButtonText="Add Your Business"
+            />
+            {/* <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform">Add Your Business</a> */}
+          </HeaderAdd>
+        </HeaderInner>
+      </StyledHeader>
+    )}
+    />
 )
 
 export default Header

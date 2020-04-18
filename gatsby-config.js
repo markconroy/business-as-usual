@@ -68,6 +68,27 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        // Fields to index
+        fields: [`name`, `services`, `county`, `phone`, `path`, `address`, `postcode`, `description`],
+        // How to resolve each field`s value for a supported node type
+        resolvers: {
+          // For any node of type MarkdownRemark, list how to resolve the fields` values
+          GoogleSpreadsheetBusinessAsUsualResponsesFormResponses1: {
+            name: node => node.businessName,
+            services: node => node.whatServicesDoYouProvide_,
+            county: node => node.county,
+            phone: node => node.phoneNumber,
+            path: node => node.fields.slug,
+            address: node => node.address,
+            postcode: node => node.postcode,
+            description: node => node.provideAShortDescriptionOfYourBusiness,
+          },
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
