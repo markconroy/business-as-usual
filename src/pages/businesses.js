@@ -28,6 +28,7 @@ const BusinessPage = ({ data }) => (
                 cardTitle = {edge.node.businessName}
                 cardAddress = {edge.node.address}
                 cardCounty = {edge.node.county}
+                cardLinkText = {`Read More`}
               />
             </GridItem>
           </Fragment>
