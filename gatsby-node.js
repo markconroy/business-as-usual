@@ -23,7 +23,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const businessPageTemplate = path.resolve(`src/templates/businessTemplate.js`)
-
+  const countiesPageTemplate = path.resolve(`src/pages/counties.js`)
+  const countyPageTemplate = path.resolve(`src/pages/county.js`)
   const result = await graphql(`
     {
       businessSheet: allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1(sort: {fields: businessName, order: ASC}) {
@@ -35,6 +36,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               slug
             }
           }
+        }
+      }
+      countyList:  allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1 {
+        group(field: county) {
+          fieldValue 
         }
       }
     }
@@ -56,4 +62,28 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     })
   })
+
+  const counties = result.data.businessSheet.edges
+  counties.forEach(({ node }) => {
+    createPage({
+      path: `/businesses/${_.kebabCase(node.county)}`,
+      component: countiesPageTemplate,
+      context: {
+        slug: `/businesses/${_.kebabCase(node.county)}`
+      },
+    })
+  })
+
+  const county = result.data.countyList.group
+  county.forEach(node => {
+    createPage({
+      path: `/businesses/${_.kebabCase(node.fieldValue)}`,
+      component: countyPageTemplate,
+      context: {
+        county: node.fieldValue,
+        countyValue: node.county
+      },
+    })
+  })
+
 }
