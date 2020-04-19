@@ -12,14 +12,20 @@ const CountyPage = ({ data }) => (
 
   <Layout>
     <SEO 
-      title="Business Trading During COVID-19"
-      description="These businesses are continuing to trade through the COVID-19/Coronavirus crisis. Please support them. "
+      title={`County ${data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.edges[0].node.county} Businesses Trading During COVID-19`}
+      description={`These businesses in ${data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.edges[0].node.county} are continuing to trade through the COVID-19/Coronavirus crisis. Please support them.`}
     />
     
     <Container>
       
-      <StyledHeading>Business As Usual</StyledHeading>  
-      <h2>Currently there are {data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.totalCount} open businesses in {data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.edges[0].node.county}</h2>
+      <StyledHeading className="h2">
+        County {data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.edges[0].node.county}
+      </StyledHeading>  
+      
+      <StyledHeading as="h2" className="h3">
+        {data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.totalCount} open business{data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.totalCount === 1 ? "" : "es"} in {data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.edges[0].node.county}
+      </StyledHeading>
+      
       <GridContainer>
         {data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.edges.map(edge => (    
           <Fragment>
