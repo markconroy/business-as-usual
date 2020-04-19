@@ -1,5 +1,6 @@
 import React, { Fragment } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import _ from 'lodash'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
@@ -67,7 +68,7 @@ export default function EventTemplate({data}) {
             {dataItem.address ? dataItem.address : ""}
             
             {dataItem.county ? 
-              <Fragment><br></br>{dataItem.county}</Fragment>
+              <Fragment><br></br><Link to={`/businesses/${_.kebabCase(dataItem.county)}`} >{dataItem.county}</Link></Fragment>
             : ""}
             
             {dataItem.postcode ? 

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-
+import _ from 'lodash'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
@@ -8,7 +8,8 @@ import GridItem from "../components/global-styles/grid-item.js"
 import Container from "../components/global-styles/container"
 import StyledHeading from "../components/global-styles/headings"
 
-const BusinessPage = ({ data }) => (
+const CountyPage = ({ data }) => (
+
   <Layout>
     <SEO 
       title="Business Trading During COVID-19"
@@ -16,15 +17,15 @@ const BusinessPage = ({ data }) => (
     />
     
     <Container>
-
+      
       <StyledHeading>Business As Usual</StyledHeading>  
-
+      <h2>Currently there are {data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.totalCount} open businesses in {data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.edges[0].node.county}</h2>
       <GridContainer>
-        {data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.edges.map(edge => (
+        {data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.edges.map(edge => (    
           <Fragment>
             <GridItem>
               <Card 
-                cardPath = {edge.node.fields.slug}
+                cardPath = {`/businesses/${_.kebabCase(edge.node.county)}/${_.kebabCase(edge.node.businessName)}`}
                 cardTitle = {edge.node.businessName}
                 cardAddress = {edge.node.address}
                 cardCounty = {edge.node.county}
@@ -39,31 +40,19 @@ const BusinessPage = ({ data }) => (
   </Layout>
 )
 
-export default BusinessPage
+export default CountyPage
 
-export const BusinessPageQuery = graphql`
-  {
-    allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1 {
+export const CountyPageQuery = graphql`
+query($county: String){
+    allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1(filter: {county: {eq: $county}}, sort: {order: ASC, fields: businessName}) {
       edges {
         node {
-          address
-          businessName
           county
-          doYouHaveAnOnlineStore_
-          postcode
-          emailAddress
-          hasYourBusinessChangedSinceCovid19_
-          phoneNumber
-          provideAShortDescriptionOfYourBusiness
-          timestamp
-          website
-          whatAreYourOpeningHours_
-          yourServices
-          fields {
-            slug
-          }
+          businessName
+          address
         }
       }
+      totalCount
     }
   }
 `

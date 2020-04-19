@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-
+import _ from 'lodash'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
@@ -8,7 +8,7 @@ import GridItem from "../components/global-styles/grid-item.js"
 import Container from "../components/global-styles/container"
 import StyledHeading from "../components/global-styles/headings"
 
-const BusinessPage = ({ data }) => (
+const CountyPage = ({ data }) => (
   <Layout>
     <SEO 
       title="Business Trading During COVID-19"
@@ -20,15 +20,14 @@ const BusinessPage = ({ data }) => (
       <StyledHeading>Business As Usual</StyledHeading>  
 
       <GridContainer>
-        {data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.edges.map(edge => (
+        {data.allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1.group.map(edge => (
+            
           <Fragment>
             <GridItem>
               <Card 
-                cardPath = {edge.node.fields.slug}
-                cardTitle = {edge.node.businessName}
-                cardAddress = {edge.node.address}
-                cardCounty = {edge.node.county}
-                cardLinkText = {`Read More`}
+                cardTitle = {`${edge.fieldValue} (${edge.totalCount}) `}
+                cardLinkText = { `View Open Businesses`}
+                cardPath = {`businesses/${_.kebabCase(edge.fieldValue)}`}
               />
             </GridItem>
           </Fragment>
@@ -39,31 +38,15 @@ const BusinessPage = ({ data }) => (
   </Layout>
 )
 
-export default BusinessPage
+export default CountyPage
 
-export const BusinessPageQuery = graphql`
-  {
+export const CountiesPageQuery = graphql`
+{
     allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1 {
-      edges {
-        node {
-          address
-          businessName
-          county
-          doYouHaveAnOnlineStore_
-          postcode
-          emailAddress
-          hasYourBusinessChangedSinceCovid19_
-          phoneNumber
-          provideAShortDescriptionOfYourBusiness
-          timestamp
-          website
-          whatAreYourOpeningHours_
-          yourServices
-          fields {
-            slug
-          }
-        }
+      group(field: county) {
+        fieldValue
       }
     }
   }
+  
 `
