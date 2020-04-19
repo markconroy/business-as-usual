@@ -23,8 +23,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const businessPageTemplate = path.resolve(`src/templates/businessTemplate.js`)
-  const countiesPageTemplate = path.resolve(`src/pages/counties.js`)
-  const countyPageTemplate = path.resolve(`src/pages/county.js`)
+  const countyPageTemplate = path.resolve(`src/templates/countyTemplate.js`)
   const result = await graphql(`
     {
       businessSheet: allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1(sort: {fields: businessName, order: ASC}) {
@@ -59,17 +58,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: businessPageTemplate,
       context: {
         slug: node.fields.slug
-      },
-    })
-  })
-
-  const counties = result.data.businessSheet.edges
-  counties.forEach(({ node }) => {
-    createPage({
-      path: `/businesses/${_.kebabCase(node.county)}`,
-      component: countiesPageTemplate,
-      context: {
-        slug: `/businesses/${_.kebabCase(node.county)}`
       },
     })
   })

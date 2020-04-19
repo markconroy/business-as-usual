@@ -1,12 +1,12 @@
 import React, { Fragment } from "react"
 import _ from 'lodash'
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Card from "../components/card"
-import GridContainer from "../components/global-styles/grid-container.js"
-import GridItem from "../components/global-styles/grid-item.js"
-import Container from "../components/global-styles/container"
-import StyledHeading from "../components/global-styles/headings"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
+import Card from "../../components/card"
+import GridContainer from "../../components/global-styles/grid-container.js"
+import GridItem from "../../components/global-styles/grid-item.js"
+import Container from "../../components/global-styles/container"
+import StyledHeading from "../../components/global-styles/headings"
 
 const CountyPage = ({ data }) => (
   <Layout>
@@ -45,6 +45,7 @@ export const CountiesPageQuery = graphql`
     allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1 {
       group(field: county) {
         fieldValue
+        totalCount
       }
     }
   }
