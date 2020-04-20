@@ -67,27 +67,24 @@ export default function EventTemplate({data}) {
             <StyledHeading>{dataItem.businessName}</StyledHeading>    
             {dataItem.address ? dataItem.address : ""}
             
-            {dataItem.county ? 
-              <Fragment><br></br><Link to={`/businesses/${_.kebabCase(dataItem.county)}`} >{dataItem.county}</Link></Fragment>
-            : ""}
+            <Fragment><br></br><Link to={`/businesses/${_.kebabCase(dataItem.county)}`} >{dataItem.county}</Link></Fragment>
+            <Fragment><br></br>{dataItem.postcode}</Fragment>
             
-            {dataItem.postcode ? 
-              <Fragment><br></br>{dataItem.postcode}</Fragment>
-            : ""}
-            
-            {dataItem.emailAddress ? 
-              <Fragment>
-                <br></br><a href={`mailto:${dataItem.emailAddress}`}>Email Us</a>
-              </Fragment>
-            : ""}
-            
-            {dataItem.emailAddress && dataItem.website ? " | " : ""}
-            
-            {dataItem.website ? 
-              <Fragment>    
-                <a href={dataItem.website}>Visit Our Website</a>
-              </Fragment>
-            : ""}
+            {dataItem.emailAddress || dataItem.website ? 
+              dataItem.emailAddress && dataItem.website ? 
+                <Fragment>
+                  <br></br><a href={`mailto:${dataItem.emailAddress}`}>Email Us</a> | <a href={dataItem.website}>Visit Our Website</a>
+                </Fragment>
+                : dataItem.emailAddress && !(dataItem.website) ? 
+                  <Fragment>
+                    <br></br><a href={`mailto:${dataItem.emailAddress}`}>Email Us</a>
+                  </Fragment> 
+                  :
+                  <Fragment>
+                    <br></br><a href={dataItem.website}>Visit Our Website</a>
+                  </Fragment>
+              : ""
+            }
           </BusinessHeader>
         </Container>
         
