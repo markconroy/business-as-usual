@@ -66,7 +66,6 @@ export default function EventTemplate({data}) {
           <BusinessHeader>
             <StyledHeading>{dataItem.businessName}</StyledHeading>    
             {dataItem.address ? dataItem.address : ""}
-            
             <Fragment><br></br><Link to={`/businesses/${_.kebabCase(dataItem.county)}`} >{dataItem.county}</Link></Fragment>
             <Fragment><br></br>{dataItem.postcode}</Fragment>
             
