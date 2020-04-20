@@ -1,6 +1,25 @@
 import React, { Component } from "react"
-import { Link } from "gatsby"
 import { Index } from "elasticlunr"
+import styled from "styled-components"
+import GridContainer from "./global-styles/grid-container"
+import GridItem from "./global-styles/grid-item"
+import Card from "./card"
+
+
+const SearchLabel = styled.label`
+  display: block;
+  margin-bottom: .25rem;
+`
+
+const SearchInput = styled.input`
+  border: 2px solid var(--primary-dark);
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  transition: .4s;
+  &:focus {
+    box-shadow: inset .5rem 0px 0px 0px var(--primary-dark);
+  }
+`
 
 // Search component
 export default class Search extends Component {
@@ -15,14 +34,21 @@ export default class Search extends Component {
   render() {
     return (
       <div>
-        <input type="text" value={this.state.query} onChange={this.search} />
-        <ul>
+        <SearchLabel for="search"><strong>Search by name, service, or keyword</strong></SearchLabel>
+        <SearchInput id="search" type="text" value={this.state.query} onChange={this.search} placeholder="Search by name, service, or keyword" />
+        <GridContainer>
           {this.state.results.map(page => (
-            <li key={page.id}>
-              <Link to={"/" + page.path}>{page.name}</Link>
-            </li>
+            <GridItem key={page.id}>
+              <Card
+                cardPath = {page.path}
+                cardTitle = {page.name}
+                cardAddress = {page.address}
+                cardCounty = {page.county}
+                cardLinkText = {`Read More`}
+              />
+            </GridItem>
           ))}
-        </ul>
+        </GridContainer>
       </div>
     )
   }
