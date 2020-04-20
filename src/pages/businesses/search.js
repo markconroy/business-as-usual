@@ -17,11 +17,9 @@ const SearchPage = ({ data }) => (
     
     <Container>
       <ContainerNarrowContent>
-        
         <StyledHeading>Search</StyledHeading>
-        
         <p>To find a business that is still open during COVID-19, search by business name, address, service, postcode, phone number, or keyword.</p>
-      </ContainerNarrowContent>  
+      </ContainerNarrowContent>
       
       <Search searchIndex={data.siteSearchIndex.index} />
       

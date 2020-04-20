@@ -24,10 +24,6 @@ const StyledHeader = styled.header`
 `
 
 const HeaderInner = styled.div`
-  // margin: 0 auto;
-  // max-width: 960px;
-  // padding-top: .25rem;
-  // padding-bottom: .25rem;
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
@@ -62,22 +58,6 @@ const HeaderAdd = styled.div`
   text-align: center;
   position: relative;
   top: 2rem;
-  // a {
-  //   display: inline-block;
-  //   padding: 1rem 2rem;
-  //   border-radius: 2rem;
-    // position: relative;
-    // top: 2rem;
-  //   color: var(--white);
-  //   text-decoration: none;
-  //   background-color: var(--secondary);
-  // }
-  // a:focus,
-  // a:hover {
-  //   background-color: var(--primary);
-  //   color: var(--white);
-  //   text-decoration: underline;
-  // }
   @media screen and (min-width: 768px) {
     max-width: 250px;
     text-align: right;
