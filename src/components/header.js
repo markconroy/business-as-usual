@@ -1,5 +1,5 @@
 import React from "react"
-import { StaticQuery, Link } from "gatsby"
+import { StaticQuery, Link, graphql } from "gatsby"
 import styled from "styled-components"
 import Container from "./global-styles/container"
 import CTAButton from "../components/ctabutton"

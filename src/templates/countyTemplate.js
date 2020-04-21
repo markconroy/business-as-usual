@@ -1,4 +1,5 @@
 import React, { Fragment } from "react"
+import { graphql } from "gatsby"
 import _ from 'lodash'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
