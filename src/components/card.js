@@ -54,12 +54,17 @@ const Card = ({
 }) => (
   <Article>
     <CardBody>
-      <CardHeading>{cardTitle}</CardHeading>  
+      <CardHeading>
+        <Link key={`${cardPath}`} to={`${cardPath}`}><strong>{`${cardTitle}`}</strong></Link>
+      </CardHeading>
       <CardList>
         {cardAddress ? <CardListItem>{cardAddress}</CardListItem> : ""}
         {cardCounty ? <CardListItem>Co. {cardCounty}</CardListItem> : ""}
       </CardList>
-      <Link key={`${cardPath}`} to={`${cardPath}`}><strong>{`${cardLinkText}`}</strong></Link>
+      {cardLinkText ? 
+        <Link key={`${cardPath}`} to={`${cardPath}`}><strong>{`${cardLinkText}`}</strong></Link> 
+        : ""
+      }
     </CardBody>
     
   </Article>
