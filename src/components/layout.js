@@ -41,10 +41,13 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
 
       <main>
+        
         <Container>
           <Search searchIndex={data.siteSearchIndex.index} />
         </Container>
+        
         {children}
+        
       </main>
         
       <Footer />
