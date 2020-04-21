@@ -27,6 +27,12 @@ const Container = styled.div`
     padding-left: 0;
     padding-right: 0;
   `}
+  ${props => props.marginTop && css `
+    margin-top: calc(var(--line-height) * 3);
+  `}
+  ${props => props.marginBottom && css `
+    margin-bottom: calc(var(--line-height) * 3);
+  `}
   ${props => props.paddingAll && css `
     padding: 3rem;
   `}

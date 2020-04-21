@@ -133,7 +133,6 @@ export default function EventTemplate({data}) {
             </BusinessDetails>
 
             <CTAButton 
-              marginTop
               internalLink
               CTAButtonLink="/businesses"
               CTAButtonText="See All Businesses"

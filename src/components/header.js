@@ -89,7 +89,6 @@ const Header = () => (
                 CTAButtonLink="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform"
                 CTAButtonText="Add Your Business"
               />
-              {/* <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform">Add Your Business</a> */}
             </HeaderAdd>
           </HeaderInner>
         </Container>
