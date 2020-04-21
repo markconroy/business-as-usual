@@ -4,6 +4,7 @@ import _ from 'lodash'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
+import CTAButton from "../components/ctabutton"
 import GridContainer from "../components/global-styles/grid-container.js"
 import GridItem from "../components/global-styles/grid-item.js"
 import Container from "../components/global-styles/container"
@@ -42,6 +43,13 @@ const CountyPage = ({ data }) => (
           </Fragment>
         ))}
       </GridContainer>
+
+      <Container marginBottom marginTop>
+        <CTAButton
+          CTAButtonLink="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform"
+          CTAButtonText="Add Your Business"
+        />
+      </Container>
 
     </Container>
   </Layout>

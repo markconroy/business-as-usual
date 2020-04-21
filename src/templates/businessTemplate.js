@@ -64,9 +64,27 @@ export default function EventTemplate({data}) {
         <Container>
           <BusinessHeader>
             <StyledHeading>{dataItem.businessName}</StyledHeading>    
-            {dataItem.address ? dataItem.address : ""}
-            <Fragment><br></br><Link to={`/businesses/${_.kebabCase(dataItem.county)}`} >{dataItem.county}</Link></Fragment>
+            
+            {dataItem.address ? 
+            
+              <Fragment>
+                {dataItem.address}, <Link to={`/businesses/${_.kebabCase(dataItem.county)}`} >County {dataItem.county}</Link>
+              </Fragment> 
+              : 
+              <Fragment>
+                <br></br>
+                <Link to={`/businesses/${_.kebabCase(dataItem.county)}`} >{dataItem.county}</Link>
+              </Fragment>  
+            }
+            
             <Fragment><br></br>{dataItem.postcode}</Fragment>
+            
+            {dataItem.phoneNumber ? 
+              <Fragment>
+                <br></br>Phone: <a href={`tel:${dataItem.phoneNumber}`}>{dataItem.phoneNumber}</a>
+              </Fragment> 
+              : ""
+            }
             
             {dataItem.emailAddress || dataItem.website ? 
               dataItem.emailAddress && dataItem.website ? 
