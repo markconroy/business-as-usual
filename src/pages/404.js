@@ -10,9 +10,11 @@ const NotFoundPage = () => (
   <Layout>
     <SEO title="404: Not found" />
     <Container>
-      <StyledHeading className="h2">Page NOT FOUND</StyledHeading>
-      <p>You landed on a page that doesn&#39;t exist... the sadness.</p>
-      <Link to="/">Wanna go home?</Link>
+      <Container narrow>
+        <StyledHeading className="h2">Page NOT FOUND</StyledHeading>
+        <p>You landed on a page that doesn&#39;t exist... the sadness.</p>
+        <Link to="/">Wanna go home?</Link>
+      </Container>
     </Container>
   </Layout>
 )

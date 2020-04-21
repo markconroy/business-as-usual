@@ -13,6 +13,8 @@ import Header from "./header"
 import Footer from "./footer"
 import "./layout.css"
 import Helmet from "react-helmet"
+import Container from "./global-styles/container"
+import Search from "./search"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -21,6 +23,9 @@ const Layout = ({ children }) => {
         siteMetadata {
           title
         }
+      }
+      siteSearchIndex {
+        index
       }
     }
   `)
@@ -35,7 +40,12 @@ const Layout = ({ children }) => {
       
       <Header siteTitle={data.site.siteMetadata.title} />
 
-      <main>{children}</main>
+      <main>
+        <Container>
+          <Search searchIndex={data.siteSearchIndex.index} />
+        </Container>
+        {children}
+      </main>
         
       <Footer />
     

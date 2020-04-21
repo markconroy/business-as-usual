@@ -7,7 +7,6 @@ import styled from "styled-components"
 import StyledHeading from "../components/global-styles/headings.js"
 import Container from "../components/global-styles/container"
 import CTAButton from "../components/ctabutton"
-import ContainerNarrowContent from "../components/global-styles/container-narrow-content"
 
 const BusinessHeader = styled.div`
   margin-bottom: calc(var(--line-height) * 3);
@@ -87,8 +86,8 @@ export default function EventTemplate({data}) {
           </BusinessHeader>
         </Container>
         
-        <Container paddingLeft paddingRight narrowContent>
-          <ContainerNarrowContent>
+        <Container paddingLeft paddingRight>
+          <Container narrowContent>
             <BusinessDetails>
               {dataItem.provideAShortDescriptionOfYourBusiness ? 
                 <Fragment>
@@ -134,13 +133,12 @@ export default function EventTemplate({data}) {
             </BusinessDetails>
 
             <CTAButton 
-              marginTop
               internalLink
               CTAButtonLink="/businesses"
               CTAButtonText="See All Businesses"
             />
 
-          </ContainerNarrowContent>
+          </Container>
         </Container>
       </article>
         
