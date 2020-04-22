@@ -17,9 +17,12 @@ const IndexPage = () => (
         <StyledHeading>Business As Usual</StyledHeading>
       </Container>
       
+      <Container narrowContent paddingNone marginBottom>
+        <p>This website is a listing of businesses that are still operating through the COVID-19 Crisis in Ireland and Northern Ireland, brought to you by <a href="https://annertech.com">Annertech</a> and <a href="https://growremote.ie">Grow Remote</a></p>
+      </Container>
+      
       <Container paddingNone>
         <GridContainer>
-        
           <GridItem>
             <CTAButton
               CTAButtonLink="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform"
@@ -37,9 +40,6 @@ const IndexPage = () => (
         </GridContainer>
       </Container>
 
-      <Container narrowContent paddingNone marginBottom>
-        <p>This website is a listing of businesses that are still operating through the COVID-19 Crisis in Ireland and Northern Ireland, brought to you by <a href="https://annertech.com">Annertech</a> and <a href="https://growremote.ie">Grow Remote</a></p>
-      </Container>
     </Container>
 
   </Layout>
