@@ -27,6 +27,10 @@ const SearchInput = styled.input`
   &:focus {
     box-shadow: inset .5rem 0px 0px 0px var(--white);
   }
+  ::placeholder {
+    color: var(--white);
+    opacity: 1;
+  }
 `
 
 // Search component
