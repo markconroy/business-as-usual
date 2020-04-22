@@ -22,13 +22,15 @@ const BusinessHeader = styled.div`
     margin-bottom: .25rem;
   }
   a {
-    color: var(--secondary);
-    display: inline-block;
     margin-top: 1.5rem;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--primary);
   }
   a:focus,
   a:hover {
     color: var(--primary-dark);
+    text-decoration: underline;
   }
 `
 
@@ -47,7 +49,7 @@ h2 {
   }
 `
 
-export default function EventTemplate({data}) {
+export default function BusinessTemplate({data}) {
   
   const { googleSpreadsheetBusinessAsUsualResponsesFormResponses1 } = data
   const dataItem = googleSpreadsheetBusinessAsUsualResponsesFormResponses1
