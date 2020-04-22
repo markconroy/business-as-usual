@@ -24,13 +24,11 @@ const BusinessHeader = styled.div`
   a {
     margin-top: 1.5rem;
     display: inline-block;
-    text-decoration: none;
     color: var(--primary);
   }
   a:focus,
   a:hover {
     color: var(--primary-dark);
-    text-decoration: underline;
   }
 `
 
