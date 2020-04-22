@@ -42,8 +42,10 @@ const Layout = ({ children }) => {
 
       <main>
         
-        <Container>
-          <Search searchIndex={data.siteSearchIndex.index} />
+        <Container fullWidth backgroundColor="primary">
+          <Container>
+            <Search searchIndex={data.siteSearchIndex.index} />
+          </Container>
         </Container>
         
         {children}

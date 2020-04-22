@@ -5,19 +5,27 @@ import GridContainer from "./global-styles/grid-container"
 import GridItem from "./global-styles/grid-item"
 import Card from "./card"
 
+const SearchContainer = styled.div`
+  padding-top: calc(var(--line-height) * 2);
+`
 
 const SearchLabel = styled.label`
   display: block;
-  margin-bottom: .25rem;
+  margin-bottom: .5rem;
+  color: var(--white);
 `
 
 const SearchInput = styled.input`
-  border: 2px solid var(--primary-dark);
+  width: 100%;
   padding: .5rem 1rem;
+  border: 2px solid var(--white);
+  border-radius: 2rem;
+  background-color: transparent;
+  color: var(--white);
   font-size: 1rem;
   transition: .4s;
   &:focus {
-    box-shadow: inset .5rem 0px 0px 0px var(--primary-dark);
+    box-shadow: inset .5rem 0px 0px 0px var(--white);
   }
 `
 
@@ -33,7 +41,7 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div>
+      <SearchContainer>
         <SearchLabel for="search"><strong>Search by name, service, or keyword</strong></SearchLabel>
         <SearchInput id="search" type="text" value={this.state.query} onChange={this.search} placeholder="Search by name, service, or keyword" />
         <GridContainer>
@@ -49,7 +57,7 @@ export default class Search extends Component {
             </GridItem>
           ))}
         </GridContainer>
-      </div>
+      </SearchContainer>
     )
   }
   getOrCreateIndex = () =>

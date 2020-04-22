@@ -3,8 +3,9 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const Article = styled.article`
-  border-left: 4px solid var(--secondary);
   width: 100%;
+  border-left: 4px solid var(--secondary);
+  background-color: var(--white);
   a {
     display: inline-block;
     margin-top: auto;

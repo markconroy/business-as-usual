@@ -15,6 +15,9 @@ const Container = styled.div`
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  ${props => props.backgroundColor && css `
+    background-color: var(--${props.backgroundColor});
+  `}
   ${props => props.narrow && css `
     max-width: 768px;
     margin-left: 0;
@@ -23,6 +26,12 @@ const Container = styled.div`
   `}
   ${props => props.narrowContent && css `
     max-width: 540px;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
+  `}
+  ${props => props.fullWidth && css `
+    max-width: 100%;
     margin-left: 0;
     padding-left: 0;
     padding-right: 0;

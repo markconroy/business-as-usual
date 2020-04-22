@@ -4,7 +4,6 @@ import styled from "styled-components"
 import Container from "./global-styles/container"
 
 const StyledHeader = styled.header`
-  margin-bottom: calc(var(--line-height) * 3);
   background-color: var(--primary-dark);
 
   .header__link {
