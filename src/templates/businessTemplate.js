@@ -22,9 +22,9 @@ const BusinessHeader = styled.div`
     margin-bottom: .25rem;
   }
   a {
-    color: var(--secondary);
-    display: inline-block;
     margin-top: 1.5rem;
+    display: inline-block;
+    color: var(--primary);
   }
   a:focus,
   a:hover {
@@ -47,7 +47,7 @@ h2 {
   }
 `
 
-export default function EventTemplate({data}) {
+export default function BusinessTemplate({data}) {
   
   const { googleSpreadsheetBusinessAsUsualResponsesFormResponses1 } = data
   const dataItem = googleSpreadsheetBusinessAsUsualResponsesFormResponses1

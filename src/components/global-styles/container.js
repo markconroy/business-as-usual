@@ -57,6 +57,9 @@ const Container = styled.div`
   ${props => props.paddingBottom && css `
     padding-bottom: 3rem;
   `}
+  ${props => props.paddingNone && css `
+    padding: 0;
+  `}
 `
 
 export default Container
