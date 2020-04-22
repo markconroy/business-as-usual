@@ -2,14 +2,8 @@ import React from "react"
 import { StaticQuery, Link, graphql } from "gatsby"
 import styled from "styled-components"
 import Container from "./global-styles/container"
-import CTAButton from "../components/ctabutton"
 
 const StyledHeader = styled.header`
-  margin-bottom: calc(var(--line-height) * 3);
-  padding-top: .25rem;
-  padding-right: 1rem;
-  padding-bottom: .25rem;
-  padding-left: 1rem;
   background-color: var(--primary-dark);
 
   .header__link {
@@ -27,10 +21,6 @@ const HeaderInner = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    > * {
-     flex-basis: 50%;
-    }
   }
 `
 
@@ -53,14 +43,42 @@ const ThinLogo = styled.span`
   font-size: var(--heading-small);
 `
 
-const HeaderAdd = styled.div`
-  padding-left: 1rem;
+const HeaderRight = styled.div`
+
+`
+
+const HeaderMenu = styled.ul`
+  display: flex;
+  padding-left: 0;
+  height: 100%;
+  margin-bottom: 0;
+  justify-content: center;
   text-align: center;
-  position: relative;
-  top: 2rem;
   @media screen and (min-width: 768px) {
-    max-width: 250px;
-    text-align: right;
+    justify-content: flex-end;
+  }
+`
+
+const HeaderMenuItem = styled.li`
+  list-style: none;
+  display: flex;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  a {
+    display: inline-block;
+    padding: .75rem 1rem;
+    color: var(--white);
+    text-decoration: none;
+  }
+  &:last-of-type a {
+    background-color: var(--secondary);
+    font-weight: bold;
+  }
+  a:focus,
+  a:hover {
+    background-color: var(--primary);
+    text-decoration: underline;
   }
 `
 
@@ -83,13 +101,13 @@ const Header = () => (
                 <ThinLogo>Business </ThinLogo> <FatLogo>as Usual</FatLogo>
               </Link>
             </HeaderBranding>
-            <HeaderAdd>
-              <CTAButton
-                relativeLower
-                CTAButtonLink="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform"
-                CTAButtonText="Add Your Business"
-              />
-            </HeaderAdd>
+            <HeaderRight>
+              <HeaderMenu>
+                <HeaderMenuItem><Link to="/businesses">All Businesses</Link></HeaderMenuItem>
+                <HeaderMenuItem><Link to="/businesses/counties">By County</Link></HeaderMenuItem>
+                <HeaderMenuItem><a href="https://docs.google.com/forms/d/e/1FAIpQLSfUgFwGuqAlE3I4scpiOosDwiJntFnA8yatxTbgfBWdxSZZiw/viewform">Add Your Business</a></HeaderMenuItem>
+              </HeaderMenu>
+            </HeaderRight>
           </HeaderInner>
         </Container>
       </StyledHeader>

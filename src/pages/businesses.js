@@ -51,7 +51,7 @@ export default BusinessPage
 
 export const BusinessPageQuery = graphql`
   {
-    allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1 {
+    allGoogleSpreadsheetBusinessAsUsualResponsesFormResponses1(sort: {fields: businessName, order: ASC}) {
       edges {
         node {
           address
