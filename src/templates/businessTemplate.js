@@ -85,20 +85,33 @@ export default function BusinessTemplate({data}) {
               </Fragment> 
               : ""
             }
-            
+
             {dataItem.emailAddress || dataItem.website ? 
-              dataItem.emailAddress && dataItem.website ? 
-                <Fragment>
-                  <br></br><a href={`mailto:${dataItem.emailAddress}`}>Email Us</a> | <a href={dataItem.website}>Visit Our Website</a>
-                </Fragment>
-                : dataItem.emailAddress && !(dataItem.website) ? 
-                  <Fragment>
-                    <br></br><a href={`mailto:${dataItem.emailAddress}`}>Email Us</a>
-                  </Fragment> 
-                  :
-                  <Fragment>
-                    <br></br><a href={dataItem.website}>Visit Our Website</a>
-                  </Fragment>
+              
+              <Fragment>
+                <ul>
+                  {dataItem.emailAddress ? 
+                    <Fragment>
+                      <li><a href={`mailto:${dataItem.emailAddress}`}>Email Us</a></li>
+                    </Fragment>
+                  : ""}
+                  {dataItem.website ? 
+                    <Fragment>
+                      <li><a href={dataItem.website}>Visit Our Website</a></li>
+                    </Fragment>
+                  : ""}
+                  {dataItem.facebook ? 
+                    <Fragment>
+                      <li><a href={dataItem.facebook}>Find Us on Facebook</a></li>
+                    </Fragment>
+                  : ""}
+                  {dataItem.twitter ? 
+                    <Fragment>
+                      <li><a href={`https://twitter.com/${dataItem.twitter}`}>Follow Us on Twitter</a></li>
+                    </Fragment>
+                  : ""}
+                </ul>
+              </Fragment>
               : ""
             }
           </BusinessHeader>
@@ -179,6 +192,8 @@ export const BusinessPageQuery = graphql`
       postcode
       provideAShortDescriptionOfYourBusiness
       website
+      facebook
+      twitter
       whatAreYourOpeningHours_
       yourServices
     }
