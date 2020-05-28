@@ -91,7 +91,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `business-as-usual`,
+        name: `Business As Usual`,
         short_name: `bau`,
         start_url: `/`,
         background_color: `#00649e`,
