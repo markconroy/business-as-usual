@@ -96,7 +96,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#00649e`,
         theme_color: `#00649e`,
-        display: `minimal-ui`,
+        display: `standalone`,
         icon: `src/images/bau-icon.png`, // This path is relative to the root of the site.
       },
     },
