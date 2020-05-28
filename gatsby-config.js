@@ -98,6 +98,7 @@ module.exports = {
         theme_color: `#00649e`,
         display: `standalone`,
         icon: `src/images/bau-icon.png`, // This path is relative to the root of the site.
+        cache_busting_mode: `query`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
