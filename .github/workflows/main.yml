@@ -1,11 +1,11 @@
 name: Trigger Netlify Build
 on:
   schedule:
-    - cron: '0 */6 * * *' # every 6 hours
+#    - cron: '0 */6 * * *' # every 6 hours
 jobs:
   build:
     name: Redeploy Site
     runs-on: ubuntu-latest
     steps:
       - name: Curl request
-        run: curl -X POST -d {} https://api.netlify.com/build_hooks/5ea092aa4ebfea66303e0043
+#        run: curl -X POST -d {} https://api.netlify.com/build_hooks/5ea092aa4ebfea66303e0043
